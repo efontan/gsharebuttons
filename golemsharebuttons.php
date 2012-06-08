@@ -32,7 +32,6 @@ class plgContentGolemShareButtons extends JPlugin {
 		parent::__construct($subject, $config);
 	}
 	
-	//public function onContentAfterDisplay($context, &$article, &$params, $page = 0) {
 	public function onContentPrepare($context, &$article, &$params, $page = 0) {
 		// API
 		$mainframe	= &JFactory::getApplication();
