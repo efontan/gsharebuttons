@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="1.7.0" group="content" method="upgrade">
+<extension type="plugin" version="1.7.0" group="content"
+	method="upgrade">
 	<name>Content – Golem ShareButtons</name>
 	<author>Emmanuel Fontan</author>
 	<authorEmail>fontanemmanuel@gmail.com</authorEmail>
 	<authorUrl>www.elgolem.com.ar</authorUrl>
 	<creationDate>08/06/2012</creationDate>
 	<copyright>2012 Emmanuel Fontan</copyright>
-	<license>GNU General Public License v3.0 - http://www.gnu.org/licenses/</license>
+	<license>GNU General Public License v3.0 - http://www.gnu.org/licenses/
+	</license>
 	<version>1.2.0</version>
-	
+
 	<description>
-		This plugin display social buttons that allows users to share your articles on social networks like Facebook, Twitter, Linkedin, Delicious, Google+, etc.		
+		This plugin display social buttons that allows users to
+		share your articles on social networks like Facebook, Twitter,
+		Linkedin, Delicious, Google+, etc.
 	</description>
 
 	<files>
@@ -20,133 +24,124 @@
 		<folder>css</folder>
 		<folder>images</folder>
 		<folder>language</folder>
-	</files>	
-	
+	</files>
+
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-			
-				<field name="show_fb_button" type="list" default="yes" label="Facebook Button: " description="Enable/Disable the Facebook button">
+
+				<field name="show_fb_button" type="list" default="yes"
+					label="Facebook Button: " description="Enable/Disable the Facebook button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_gp_button" type="list" default="yes" label="Google+ Button: " description="Enable/Disable the Google+ button">
+
+				<field name="show_gp_button" type="list" default="yes"
+					label="Google+ Button: " description="Enable/Disable the Google+ button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_tw_button" type="list" default="yes" label="Twiter Button: " description="Enable/Disable the Twiter button">
+
+				<field name="show_tw_button" type="list" default="yes"
+					label="Twiter Button: " description="Enable/Disable the Twiter button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_ln_button" type="list" default="yes" label="Linkedin Button: " description="Enable/Disable the Linkedin button">
+
+				<field name="show_ln_button" type="list" default="yes"
+					label="Linkedin Button: " description="Enable/Disable the Linkedin button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_id_button" type="list" default="yes" label="Identi.ca Button: " description="Enable/Disable the Identi.ca button">
+
+				<field name="show_id_button" type="list" default="yes"
+					label="Identi.ca Button: " description="Enable/Disable the Identi.ca button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_dl_button" type="list" default="yes" label="Delecious Button: " description="Enable/Disable the Delecious button">
+
+				<field name="show_dl_button" type="list" default="yes"
+					label="Delecious Button: " description="Enable/Disable the Delecious button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_tu_button" type="list" default="yes" label="Tuenti Button: " description="Enable/Disable the Tuenti button">
+
+				<field name="show_tu_button" type="list" default="yes"
+					label="Tuenti Button: " description="Enable/Disable the Tuenti button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_dg_button" type="list" default="yes" label="Digg Button: " description="Enable/Disable the Digg button">
+
+				<field name="show_dg_button" type="list" default="yes"
+					label="Digg Button: " description="Enable/Disable the Digg button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_st_button" type="list" default="yes" label="Stumbleupon Button: " description="Enable/Disable the Stumbleupon button">
+
+				<field name="show_st_button" type="list" default="yes"
+					label="Stumbleupon Button: " description="Enable/Disable the Stumbleupon button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_rd_button" type="list" default="yes" label="Reddit Button: " description="Enable/Disable the Reddit button">
+
+				<field name="show_rd_button" type="list" default="yes"
+					label="Reddit Button: " description="Enable/Disable the Reddit button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_tch_button" type="list" default="yes" label="Technorati Button: " description="Enable/Disable the Technorati button">
+
+				<field name="show_tch_button" type="list" default="yes"
+					label="Technorati Button: " description="Enable/Disable the Technorati button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-				<field name="show_me_button" type="list" default="yes" label="Meneame Button: " description="Enable/Disable the Meneame button">
+
+				<field name="show_me_button" type="list" default="yes"
+					label="Meneame Button: " description="Enable/Disable the Meneame button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
-				
-			</fieldset>	
-		
-			<fieldset name="advanced">			
-				<field name="buttons_position" 
-					type="list" 
-					default="bottom" 
-					label="PLG_GOLEMSHAREBUTTONS_POSITION" 
-					description="PLG_GOLEMSHAREBUTTONS_POSITION_DESC" >
-						<option value="top">PLG_GOLEMSHAREBUTTONS_POSITION_TOP</option>
-						<option value="bottom">PLG_GOLEMSHAREBUTTONS_POSITION_BOTTOM</option>
+
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field name="buttons_position" type="list" default="bottom"
+					label="PLG_GOLEMSHAREBUTTONS_POSITION" description="PLG_GOLEMSHAREBUTTONS_POSITION_DESC">
+					<option value="top">PLG_GOLEMSHAREBUTTONS_POSITION_TOP</option>
+					<option value="bottom">PLG_GOLEMSHAREBUTTONS_POSITION_BOTTOM</option>
 				</field>
-				
-				<field name="show_share_text" 
-					type="list" 
-					default="no" 
-					label="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT" 
-					description="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT_DESC" >
-						<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
-						<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
+
+				<field name="show_share_text" type="list" default="no"
+					label="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT_DESC">
+					<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
+					<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
 				</field>
-				
-				<field name="share_text" 
-					type="text" 
-					default="" 
-					label="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT" 
-					description="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT_DESC" />
-				
-				<field name="icons_size" 
-					type="list" 
-					default="16" 
-					label="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE" 
-					description="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE_DESC" >
-						<option value="16">16</option>
-						<option value="24">24</option>
-						<option value="32">32</option>
+
+				<field name="share_text" type="text" default=""
+					label="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT_DESC" />
+
+				<field name="icons_size" type="list" default="16"
+					label="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE" description="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE_DESC">
+					<option value="16">16</option>
+					<option value="24">24</option>
+					<option value="32">32</option>
 				</field>
-				
-				<field name="load_css" 
-					type="list" 
-					default="yes" 
-					label="PLG_GOLEMSHAREBUTTONS_LOAD_CSS" 
-					description="PLG_GOLEMSHAREBUTTONS_LOAD_CSS_DESC" >
-						<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
-						<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
+
+				<field name="load_css" type="list" default="yes"
+					label="PLG_GOLEMSHAREBUTTONS_LOAD_CSS" description="PLG_GOLEMSHAREBUTTONS_LOAD_CSS_DESC">
+					<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
+					<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
 				</field>
-				
-				<field name="twitter_status" 
-					type="text" 
-					default="Reading: " 
-					label="Twitter Status" 
-					description="" />
-					
-				<field name="identica_status" 
-					type="text" 
-					default="Reading: " 
-					label="Identi.ca Status" 
-					description="" />
-				
-			</fieldset>		
-			
-		</fields>		
+
+				<field name="twitter_status" type="text" default="Reading: "
+					label="Twitter Status" description="" />
+
+				<field name="identica_status" type="text" default="Reading: "
+					label="Identi.ca Status" description="" />
+
+			</fieldset>
+
+		</fields>
 	</config>
-	
+
 </extension>
