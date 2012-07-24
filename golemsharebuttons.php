@@ -2,7 +2,7 @@
 /**
  * @package ElGolem
  * @subpackage plg_golem_sharebuttons
- * @version   1.2.0 - 08/06/2012
+ * @version   0.2.1 - 24/07/2012
  * @author    Emmanuel Fontan
  * @copyright (C) 2012 Emmanuel Fontan (email : fontanemmanel@gmail.com)
  *
@@ -32,7 +32,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		parent::__construct($subject, $config);
 	}
 
-	public function onContentPrepare($context, &$article, &$params, $page = 0) {
+	function onPrepareContent( &$article, &$params, $limitstart ) {
 		// API
 		$mainframe	= &JFactory::getApplication();
 		$document 	= &JFactory::getDocument();
@@ -40,19 +40,15 @@ class plgContentGolemShareButtons extends JPlugin {
 		//BASEURL
 		$baseURL 	= JURI::base().'plugins/content/golemsharebuttons/';
 
-		$view = JRequest::getCmd('view');
-
 		//LOAD THE PLUGIN LANGUAGE
 		JPlugin::loadLanguage('plg_content_golemsharebuttons', JPATH_ADMINISTRATOR);
 
 		//GET PARAMETERS
-		$buttons_position = $this->params->get('buttons_position','');
-		$show_share_text = $this->params->get('show_share_text','');
+		$buttons_position = $this->params->get('buttons_position','bottom');
+		$show_share_text = $this->params->get('show_share_text','no');
 		$share_text = $this->params->get('share_text','');
-		$icons_size = $this->params->get('icons_size','');
-		$load_css = $this->params->get('load_css','');
-
-		$twitter_status = trim($this->params->get('twitter_status',''));
+		$icons_size = $this->params->get('icons_size','16');
+		$load_css = $this->params->get('load_css','yes');
 
 		//Buttons
 		$show_fb_button = $this->params->get('show_fb_button','');
@@ -70,8 +66,8 @@ class plgContentGolemShareButtons extends JPlugin {
 
 		/*#####*/
 
-		// IF THE CONTEXT ISN'T 'COM_CONTENT.ARTICLE', NOT SHOW THE BUTTONS (NOT SHOW IN CUSTOM MODULES, e.g.)
-		if	( $context != 'com_content.article'){
+		// IF THE VIEW ISN'T 'ARTICLE', NOT SHOW THE BUTTONS (NOT SHOW IN CUSTOM MODULES, e.g.)
+		if (JRequest::getCmd('view') != 'article') {
 			return;
 		}
 
@@ -124,6 +120,9 @@ class plgContentGolemShareButtons extends JPlugin {
 		/* TWITTER BUTTON */
 		/* ########################################### */
 		if ($show_tw_button == "yes") {
+
+			$twitter_status = trim($this->params->get('twitter_status',''));
+
 			$html.= '
 			<span class="golem_button_twitter" id="golem_button_twitter">
 			<a href="https://twitter.com/intent/tweet?text='.$twitter_status.' '.$articleTitle.'&url='.$articleUrl.'" title="Share on Twitter!" target="_blank">
@@ -151,7 +150,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		/* IDENTI.CA BUTTON */
 		/* ########################################### */
 		if ($show_id_button == "yes") {
-				
+
 			$identica_status = trim($this->params->get('identica_status',''));
 
 			$html.= '

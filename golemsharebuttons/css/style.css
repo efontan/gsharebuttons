@@ -1,0 +1,53 @@
+.golem_share_buttons{
+	background-color:transparent;
+	margin-top:20px;
+}
+	.golem_share_buttons span{
+		margin-right:2px;
+	}
+	
+		.golem_share_buttons span.golem_share_buttons_text{
+			
+		}
+	
+		.golem_share_buttons span a:link{
+			background-color:transparent !important;
+			text-decoration:none !important;
+			
+			opacity: .6;
+			
+			-webkit-transition: all 0.2s linear;
+			-moz-transition: all 0.2s linear;
+			-o-transition: all 0.2s linear;
+			transition: all 0.2s linear;			
+		}
+		
+			.golem_share_buttons span a:visited{
+				background-color:transparent !important;
+				text-decoration:none !important;
+			}
+			
+			.golem_share_buttons span a:hover{
+				background-color:transparent !important;
+				text-decoration:none !important;
+				
+				opacity: 1;
+			}
+			
+			.golem_share_buttons span a:active{
+				background-color:transparent !important;
+				text-decoration:none !important;
+			}
+				
+		.golem_share_buttons span a img{
+			border:0;
+		}
+
+/* ################################################### */
+/* PRINTER STYLES */
+/* ################################################### */
+@media print {
+	.golem_share_buttons  {
+		display:none;
+	}
+}

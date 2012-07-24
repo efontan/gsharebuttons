@@ -3,7 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 /**
  * @package ElGolem
  * @subpackage plg_golem_sharebuttons
- * @version   1.2.0 - 08/06/2012
+ * @version   0.2.1 - 24/07/2012
  * @author    Emmanuel Fontan
  * @copyright (C) 2012 Emmanuel Fontan (email : fontanemmanel@gmail.com)
  *
