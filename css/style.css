@@ -9,7 +9,7 @@
 	
 		.golem_share_buttons span.golem_share_buttons_text {}
 		
-		.golem_share_buttons span a: link {
+		.golem_share_buttons span a:link {
 			background-color: transparent !important;
 			text-decoration: none !important;
 			
@@ -21,19 +21,19 @@
 			transition: all 0.2s linear;
 		}
 		
-			.golem_share_buttons span a: visited {
+			.golem_share_buttons span a:visited {
 				background-color: transparent !important;
 				text-decoration: none !important;
 			}
 			
-			.golem_share_buttons span a: hover {
+			.golem_share_buttons span a:hover {
 				background-color: transparent !important;
 				text-decoration: none !important;
 				
 				opacity: 1;
 			}
 			
-			.golem_share_buttons span a: active {
+			.golem_share_buttons span a:active {
 				background-color: transparent !important;
 				text-decoration: none !important;
 			}
