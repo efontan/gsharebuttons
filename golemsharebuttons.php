@@ -101,7 +101,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_facebook" id="golem_button_facebook">
 			<a href="https://www.facebook.com/share.php?u='.$articleUrl.'&t='.$articleTitle.'" title="Share on Facebook!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/facebook.png" title="Share on Facebook!" alt="Facebook Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/facebook.png" title="Share on Facebook!" alt="Facebook Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -114,7 +114,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_googleplus" id="golem_button_googleplus">
 			<a href="https://plus.google.com/share?url='.$articleUrl.'" title="Share on Google+!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/googleplus.png" title="Share on Google+!" alt="Google Plus Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/googleplus.png" title="Share on Google+!" alt="Google Plus Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>';
 		}
@@ -127,7 +127,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_twitter" id="golem_button_twitter">
 			<a href="https://twitter.com/intent/tweet?text='.$twitter_status.' '.$articleTitle.'&url='.$articleUrl.'" title="Share on Twitter!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/twitter.png" title="Tweet this!" alt="Twitter Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/twitter.png" title="Tweet this!" alt="Twitter Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -141,7 +141,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			<span class="golem_button_linkedin" id="golem_button_linkedin">
 			<a href="https://www.linkedin.com/shareArticle?mini=true&url='.$articleUrl.'&title='.$articleTitle.'&ro=false&summary=&source=
 			" title="Share on Linkedin!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/linkedin.png" title="Share on Linkedin!" alt="Linkedin Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/linkedin.png" title="Share on Linkedin!" alt="Linkedin Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -157,7 +157,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_identica" id="golem_button_identica">
 			<a href="http://identi.ca/index.php?action=newnotice&status_textarea='.$identica_status.' '.$articleTitle.' '.$articleUrl.'" title="Share on Identi.ca" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/identica.png" title="Share on Identi.ca" alt="Identi.ca" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/identica.png" title="Share on Identi.ca" alt="Identi.ca" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -170,7 +170,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_delicious" id="golem_button_delicious">
 			<a href="https://delicious.com/save?url='.$articleUrl.'&title='.$articleTitle.'" title="Add to Delicious!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/delicious.png" title="Add to Delicious!" alt="Delicious Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/delicious.png" title="Add to Delicious!" alt="Delicious Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -182,7 +182,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		if ($show_tu_button == "yes") {
 			$html.= '<span class="golem_button_tuenti" id="golem_button_tuenti">
 			<a href="https://www.tuenti.com/share?url='.$articleUrl.'" title="Share on Tuenti!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/tuenti.png" title="Share on Tuenti!" alt="Tuenti Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/tuenti.png" title="Share on Tuenti!" alt="Tuenti Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>';
 		}
@@ -194,7 +194,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		if ($show_dg_button == "yes") {
 			$html.= '<span class="golem_button_digg" id="golem_button_digg">
 			<a href="http://www.digg.com/submit?url='.$articleUrl.'&t='.$articleTitle.'" title="Digg this!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/digg.png" title="Digg this!" alt="Digg Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/digg.png" title="Digg this!" alt="Digg Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>';
 		}
@@ -206,7 +206,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_stumbleupon" id="golem_button_stumbleupon">
 			<a href="https://www.stumbleupon.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Digg this!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/stumbleupon.png" title="Share on Stumbleupon!" alt="Stumbleupon Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/stumbleupon.png" title="Share on Stumbleupon!" alt="Stumbleupon Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -219,7 +219,7 @@ class plgContentGolemShareButtons extends JPlugin {
 			$html.= '
 			<span class="golem_button_reddit" id="golem_button_reddit">
 			<a href="http://www.reddit.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Share on Reddit!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/reddit.png" title="Share on Reddit!" alt="Reddit Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/reddit.png" title="Share on Reddit!" alt="Reddit Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>
 			';
@@ -231,7 +231,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		if ($show_tch_button == "yes") {
 			$html.= '<span class="golem_button_technorati" id="golem_button_technorati">
 			<a href="http://www.technorati.com/faves?add='.$articleUrl.'" title="Share on Technorati!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/technorati.png" title="Share on Technorati!" alt="Technorati Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/technorati.png" title="Share on Technorati!" alt="Technorati Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>	';
 		}
@@ -242,7 +242,7 @@ class plgContentGolemShareButtons extends JPlugin {
 		if ($show_me_button == "yes") {
 			$html.= '<span class="golem_button_meneame" id="golem_button_meneame">
 			<a href="http://meneame.net/submit.php?url='.$articleUrl.'" title="Share on Meneame!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/meneame.png" title="Share on Meneame!" alt="Meneame Button" />
+			<img src="'.$baseURL.'images/'.$icons_size.'/meneame.png" title="Share on Meneame!" alt="Meneame Button" width="'.$icons_size.'" height="'.$icons_size.'" />
 			</a>
 			</span>	';
 		}
