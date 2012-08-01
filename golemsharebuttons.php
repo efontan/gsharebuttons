@@ -2,7 +2,7 @@
 /**
  * @package ElGolem
  * @subpackage plg_golem_sharebuttons
- * @version   1.2.2 - 01/05/2012
+ * @version   1.2.3 - 01/08/2012
  * @author    Emmanuel Fontan
  * @copyright (C) 2012 Emmanuel Fontan (email : fontanemmanel@gmail.com)
  *
