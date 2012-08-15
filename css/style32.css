@@ -1,0 +1,140 @@
+ul.golem_share_buttons {
+	background-color:transparent;
+	margin:15px 0 !important;
+	padding:0 !important;
+	overflow:hidden;
+}
+
+		ul.golem_share_buttons .golem_share_buttons_text {
+			font-family:"Arial",sans-serif;
+			font-size:10pt;
+			font-weight:bold;
+			color:#666;
+			float:left;
+			margin: 0 8px 0 0;
+			line-height:32px !important;
+		}
+		
+		ul.golem_share_buttons li {
+			list-style:none;
+			margin-right:8px !important;
+			float:left;
+			padding:0;
+			margin:0;
+			width:32px !important;
+			height:32px !important;
+		}
+		
+		ul.golem_share_buttons li a {
+			background-image:url('../images/sprite32.png') !important;
+			background-repeat:no-repeat;
+			display:block;
+			text-decoration:none !important;
+			width: 32px !important;
+			height: 32px !important;
+			
+			opacity:.7;
+			
+			-webkit-transition:all 0.3s linear;
+			-moz-transition:all 0.3s linear;
+			-o-transition:all 0.3s linear;
+			transition:all 0.3s linear;
+		}
+		
+			ul.golem_share_buttons a:visited {
+				background-color:transparent;
+				text-decoration:none !important;
+			}
+			
+			ul.golem_share_buttons a:hover {
+				background-color:transparent !important;
+				text-decoration:none !important;
+				
+				opacity:1;
+			}
+			
+			ul.golem_share_buttons a:active {
+				background-color:transparent;
+				text-decoration:none !important;
+			}
+			
+
+			ul.golem_share_buttons a.golem_button_facebook, ul.golem_share_buttons a.golem_button_facebook:visited, ul.golem_share_buttons a.golem_button_facebook:hover, ul.golem_share_buttons a.golem_button_facebook:active {
+				background-position: 0px -74px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_googleplus, ul.golem_share_buttons a.golem_button_googleplus:visited, ul.golem_share_buttons a.golem_button_googleplus:hover, ul.golem_share_buttons a.golem_button_googleplus:active {
+				background-position: 0px -111px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_twitter, ul.golem_share_buttons a.golem_button_twitter:visited, ul.golem_share_buttons a.golem_button_twitter:hover, ul.golem_share_buttons a.golem_button_twitter:active {
+				background-position: 0px -481px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_linkedin, ul.golem_share_buttons a.golem_button_linkedin:visited, ul.golem_share_buttons a.golem_button_linkedin:hover, ul.golem_share_buttons a.golem_button_linkedin:active {
+				background-position: 0px -185px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_print, ul.golem_share_buttons a.golem_button_print:visited, ul.golem_share_buttons a.golem_button_print:hover, ul.golem_share_buttons a.golem_button_print:active {
+				background-position: 0px -296px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_pdf, ul.golem_share_buttons a.golem_button_pdf:visited, ul.golem_share_buttons a.golem_button_pdf:hover, ul.golem_share_buttons a.golem_button_pdf:active {
+				background-position: 0px -259px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_delicious, ul.golem_share_buttons a.golem_button_delicious:visited, ul.golem_share_buttons a.golem_button_delicious:hover, ul.golem_share_buttons a.golem_button_delicious:active {
+				background-position:0px 0px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_tuenti, ul.golem_share_buttons a.golem_button_tuenti:visited, ul.golem_share_buttons a.golem_button_tuenti:hover, ul.golem_share_buttons a.golem_button_tuenti:active {
+				background-position: 0px -444px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_identica, ul.golem_share_buttons a.golem_button_identica:visited, ul.golem_share_buttons a.golem_button_identica:hover, ul.golem_share_buttons a.golem_button_identica:active {
+				background-position: 0px -148px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_digg, ul.golem_share_buttons a.golem_button_digg:visited, ul.golem_share_buttons a.golem_button_digg:hover, ul.golem_share_buttons a.golem_button_digg:active {
+				background-position: 0px -37px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_stumbleupon, ul.golem_share_buttons a.golem_button_stumbleupon:visited, ul.golem_share_buttons a.golem_button_stumbleupon:hover, ul.golem_share_buttons a.golem_button_stumbleupon:active {
+				background-position: 0px -370px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_reddit, ul.golem_share_buttons a.golem_button_reddit:visited, ul.golem_share_buttons a.golem_button_reddit:hover, ul.golem_share_buttons a.golem_button_reddit:active {
+				background-position: 0px -333px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_technorati, ul.golem_share_buttons a.golem_button_technorati:visited, ul.golem_share_buttons a.golem_button_technorati:hover, ul.golem_share_buttons a.golem_button_technorati:active {
+				background-position: 0px -407px !important;
+				background-color:transparent !important;
+			}
+		
+			ul.golem_share_buttons a.golem_button_meneame, ul.golem_share_buttons a.golem_button_meneame:visited, ul.golem_share_buttons a.golem_button_meneame:hover, ul.golem_share_buttons a.golem_button_meneame:active {
+				background-position: 0px -222px !important;
+				background-color:transparent !important;
+			}
+		
+		
+/* ################################################### */
+/* PRINTER STYLES */
+/* ################################################### */
+@media print {
+	ul.golem_share_buttons{
+		display:none;
+	}
+}

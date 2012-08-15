@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="1.7.0" group="content"
-	method="upgrade">
+<extension type="plugin" version="1.7.0" group="content" method="upgrade">
 	<name>Content – Golem ShareButtons</name>
 	<author>Emmanuel Fontan</author>
-	<authorEmail>fontanemmanuel@gmail.com</authorEmail>
 	<authorUrl>www.elgolem.com.ar</authorUrl>
-	<creationDate>01/08/2012</creationDate>
+	<creationDate>14/08/2012</creationDate>
 	<copyright>2012 Emmanuel Fontan</copyright>
 	<license>GNU General Public License v3.0 - http://www.gnu.org/licenses/
 	</license>
-	<version>1.2.3</version>
+	<version>1.3.0</version>
 
 	<description>
 		This plugin display social buttons that allows users to
@@ -50,6 +48,18 @@
 
 				<field name="show_ln_button" type="list" default="yes"
 					label="Linkedin Button: " description="Enable/Disable the Linkedin button">
+					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
+					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
+				</field>
+				
+				<field name="show_print_button" type="list" default="yes"
+					label="Print Button: " description="Enable/Disable the Print button">
+					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
+					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
+				</field>
+				
+				<field name="show_pdf_button" type="list" default="yes"
+					label="PDF Button: " description="Enable/Disable the PDF button">
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_ENABLE</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
@@ -102,6 +112,7 @@
 					<option value="no">PLG_GOLEMSHAREBUTTONS_DISNABLE</option>
 				</field>
 
+				
 			</fieldset>
 
 			<fieldset name="advanced">
@@ -110,15 +121,6 @@
 					<option value="top">PLG_GOLEMSHAREBUTTONS_POSITION_TOP</option>
 					<option value="bottom">PLG_GOLEMSHAREBUTTONS_POSITION_BOTTOM</option>
 				</field>
-
-				<field name="show_share_text" type="list" default="no"
-					label="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT_DESC">
-					<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
-					<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
-				</field>
-
-				<field name="share_text" type="text" default=""
-					label="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT_DESC" />
 
 				<field name="icons_size" type="list" default="16"
 					label="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE" description="PLG_GOLEMSHAREBUTTONS_ICONS_SIZE_DESC">
@@ -132,14 +134,39 @@
 					<option value="yes">PLG_GOLEMSHAREBUTTONS_YES</option>
 					<option value="no">PLG_GOLEMSHAREBUTTONS_NO</option>
 				</field>
+				
+				<field name="show_share_text" type="list" default="1" 
+					label="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHOW_SHARE_TEXT_DESC">
+					<option value="1">PLG_GOLEMSHAREBUTTONS_YES</option>
+					<option value="0">PLG_GOLEMSHAREBUTTONS_NO</option>
+				</field>
 
-				<field name="twitter_status" type="text" default="Reading: "
+				<param name="share_text" type="text" default=""
+					label="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT" description="PLG_GOLEMSHAREBUTTONS_SHARE_TEXT_DESC" />
+
+				<param name="twitter_status" type="text" default=""
 					label="Twitter Status" description="" />
 
-				<field name="identica_status" type="text" default="Reading: "
+				<param name="identica_status" type="text" default=""
 					label="Identi.ca Status" description="" />
 
 			</fieldset>
+			
+			<fieldset name="GOLEMSHAREBUTTONS_PDF">
+				<field name="pdf_service" type="list" default="1"
+					label="PLG_GOLEMPRINTBUTTONS_PDF_SERVICE" description="PLG_GOLEMPRINTBUTTONS_PDF_SERVICE_DESC">
+					<option value="1">PLG_GOLEMPRINTBUTTONS_PDF_SERVICE_1</option>
+					<option value="2">PLG_GOLEMPRINTBUTTONS_PDF_SERVICE_2</option>
+				</field>
+				
+				<field name="pdf_view" type="list" default="article"
+					label="PLG_GOLEMSHAREBUTTONS_PDF_VIEW" description="PLG_GOLEMSHAREBUTTONS_PDF_VIEW_DESC">
+					<option value="article">PLG_GOLEMSHAREBUTTONS_PDF_VIEW_ARTICLE</option>
+					<option value="page">PLG_GOLEMSHAREBUTTONS_PDF_VIEW_PAGE</option>
+				</field>
+				
+			</fieldset>
+
 
 		</fields>
 	</config>
