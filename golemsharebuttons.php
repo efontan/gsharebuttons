@@ -2,7 +2,7 @@
 /**
  * @package ElGolem
  * @subpackage plg_golem_sharebuttons
- * @version   0.2.1 - 24/07/2012
+ * @version   0.3.0 - 14/08/2012
  * @author    Emmanuel Fontan
  * @copyright (C) 2012 Emmanuel Fontan (email : fontanemmanel@gmail.com)
  *
@@ -40,15 +40,17 @@ class plgContentGolemShareButtons extends JPlugin {
 		//BASEURL
 		$baseURL 	= JURI::base().'plugins/content/golemsharebuttons/';
 
+		$view = JRequest::getCmd('view');
+
 		//LOAD THE PLUGIN LANGUAGE
 		JPlugin::loadLanguage('plg_content_golemsharebuttons', JPATH_ADMINISTRATOR);
 
 		//GET PARAMETERS
-		$buttons_position = $this->params->get('buttons_position','bottom');
-		$show_share_text = $this->params->get('show_share_text','no');
+		$buttons_position = $this->params->get('buttons_position','');
+		$icons_size = $this->params->get('icons_size',16);
+		$load_css = $this->params->get('load_css','');		
+		$show_share_text = $this->params->get('show_share_text','');
 		$share_text = $this->params->get('share_text','');
-		$icons_size = $this->params->get('icons_size','16');
-		$load_css = $this->params->get('load_css','yes');
 
 		//Buttons
 		$show_fb_button = $this->params->get('show_fb_button','');
@@ -63,56 +65,49 @@ class plgContentGolemShareButtons extends JPlugin {
 		$show_rd_button = $this->params->get('show_rd_button','');
 		$show_tch_button = $this->params->get('show_tch_button','');
 		$show_me_button = $this->params->get('show_me_button','');
+		
+		//PDF Options
+		$show_pdf_button = $this->params->get('show_pdf_button','yes');
+		$show_print_button = $this->params->get('show_print_button','yes');
 
 		/*#####*/
 
-		// IF THE VIEW ISN'T 'ARTICLE', NOT SHOW THE BUTTONS (NOT SHOW IN CUSTOM MODULES, e.g.)
-		if (JRequest::getCmd('view') != 'article') {
+		if ( JRequest::getCmd('view') != 'article'  || ( isset( $_GET['print'] ) && $_GET['print'] == 1 ) ) {
 			return;
 		}
 
 		// ADD STYLES
 		if ($load_css == "yes") {
-			$document->addStyleSheet( $baseURL.'css/style.css' );
-		}
+			$document->addStyleSheet( $baseURL.'css/style'.$icons_size.'.css' );
+		}		
 
 		// URI AND TITLE OF ARTICLE
-		$uri =& JURI::getInstance();
+		$uri = JURI::getInstance();
 		$articleUrl = urlencode($uri->toString());
 		$articleTitle = urlencode($article->title);
 
 		//GET THE HTML
-		$show_share_text = $this->params->get('show_share_text','');
-		$share_text = $this->params->get('share_text','');
-
-
-		$html = '<div class="golem_share_buttons" id="golem_share_buttons">';
-
-		$html .= ($show_share_text=="yes")? '<span class="golem_share_buttons_text">'.$share_text.'</span> ':'';
+		$html = '<ul class="golem_share_buttons" id="golem_share_buttons">';
+		
+		$html .= ($show_share_text == 1)? ('<div class="golem_share_buttons_text">'.$share_text.'</div>&nbsp;'):'';
+		
 
 		/* ########################################### */
 		/* FACEBOOK BUTTON */
 		/* ########################################### */
 		if ($show_fb_button == "yes") {
-			$html.= '
-			<span class="golem_button_facebook" id="golem_button_facebook">
-			<a href="https://www.facebook.com/share.php?u='.$articleUrl.'&t='.$articleTitle.'" title="Share on Facebook!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/facebook.png" title="Share on Facebook!" alt="Facebook Button" />
-			</a>
-			</span>
-			';
+			$html.= '<li>
+			<a class="golem_button_facebook" id="golem_button_facebook" href="https://www.facebook.com/share.php?u='.$articleUrl.'&t='.$articleTitle.'" title="Facebook" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* GOOGLE+ */
 		/* ########################################### */
 		if ($show_gp_button == "yes") {
-			$html.= '
-			<span class="golem_button_googleplus" id="golem_button_googleplus">
-			<a href="https://plus.google.com/share?url='.$articleUrl.'" title="Share on Google+!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/googleplus.png" title="Share on Google+!" alt="Google Plus Button" />
-			</a>
-			</span>';
+			$html.= '<li>
+			<a class="golem_button_googleplus" id="golem_button_googleplus" href="https://plus.google.com/share?url='.$articleUrl.'" title="Google+" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 
@@ -120,134 +115,139 @@ class plgContentGolemShareButtons extends JPlugin {
 		/* TWITTER BUTTON */
 		/* ########################################### */
 		if ($show_tw_button == "yes") {
-
 			$twitter_status = trim($this->params->get('twitter_status',''));
-
-			$html.= '
-			<span class="golem_button_twitter" id="golem_button_twitter">
-			<a href="https://twitter.com/intent/tweet?text='.$twitter_status.' '.$articleTitle.'&url='.$articleUrl.'" title="Share on Twitter!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/twitter.png" title="Tweet this!" alt="Twitter Button" />
-			</a>
-			</span>
-			';
+			
+			$html.= '<li>
+			<a class="golem_button_twitter" id="golem_button_twitter" href="https://twitter.com/intent/tweet?text='.$twitter_status.' '.$articleTitle.'&url='.$articleUrl.'" title="Twitter" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* LINKEDIN BUTTON */
 		/* ########################################### */
 		if ($show_ln_button == "yes") {
-			$html.= '
-			<span class="golem_button_linkedin" id="golem_button_linkedin">
-			<a href="https://www.linkedin.com/shareArticle?mini=true&url='.$articleUrl.'&title='.$articleTitle.'&ro=false&summary=&source=
-			" title="Share on Linkedin!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/linkedin.png" title="Share on Linkedin!" alt="Linkedin Button" />
-			</a>
-			</span>
-			';
+			$html.= '<li>
+			<a class="golem_button_linkedin" id="golem_button_linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url='.$articleUrl.'&title='.$articleTitle.'&ro=false&summary=&source=
+			" title="Linkedin" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
+		}
+	
+		//Search the '?' character on the Article URI
+		$pattern = "/\?/";
+		$print_view = (preg_match($pattern, $uri->toString()))? "&tmpl=component&print=1":"?tmpl=component&print=1";
+
+		/* ########################################### */
+		/* PRINT BUTTON */
+		/* ########################################### */
+		if ($show_print_button == "yes") {			
+			$html.= '<li>
+			<a class="golem_button_print" id="golem_button_print" href="'.$uri->toString().$print_view.'" title="Print" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
-		/* IDENTI.CA BUTTON */
+		/* PDF BUTTON */
 		/* ########################################### */
-		if ($show_id_button == "yes") {
+		if ($show_pdf_button == "yes") {
+			$pdf_view = $this->params->get('pdf_view','article');
+			$pdf_service = $this->params->get('pdf_service',1);
+		
+			//GENERATE PDF URL
+			$pdf_url = ($pdf_view == 'article')? $uri->toString().$print_view:$uri->toString();
+			
+			
+			$html.= '<li>
+			<a class="golem_button_pdf" id="golem_button_pdf" href="';
+			
+			switch ($pdf_service) {
+				case 1:
+					$html.= 'http://pdfmyurl.com?url='.$pdf_url.'"';
+					
+				case 2:				
+					$html.= 'http://www.printfriendly.com/print/v2?url='.$pdf_url.'"';
+					
+			}
 
-			$identica_status = trim($this->params->get('identica_status',''));
-
-			$html.= '
-			<span class="golem_button_identica" id="golem_button_identica">
-			<a href="http://identi.ca/index.php?action=newnotice&status_textarea='.$identica_status.' '.$articleTitle.' '.$articleUrl.'" title="Share on Identi.ca" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/identica.png" title="Share on Identi.ca" alt="Identi.ca" />
-			</a>
-			</span>
-			';
+			$html.= ' title="PDF" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* DELICIOUS BUTTON */
 		/* ########################################### */
 		if ($show_dl_button == "yes") {
-			$html.= '
-			<span class="golem_button_delicious" id="golem_button_delicious">
-			<a href="https://delicious.com/save?url='.$articleUrl.'&title='.$articleTitle.'" title="Add to Delicious!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/delicious.png" title="Add to Delicious!" alt="Delicious Button" />
-			</a>
-			</span>
-			';
+			$html.= '<li>
+			<a class="golem_button_delicious" id="golem_button_delicious" href="https://delicious.com/save?url='.$articleUrl.'&title='.$articleTitle.'" title="Delicious" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* TUENTI BUTTON */
 		/* ########################################### */
 		if ($show_tu_button == "yes") {
-			$html.= '<span class="golem_button_tuenti" id="golem_button_tuenti">
-			<a href="https://www.tuenti.com/share?url='.$articleUrl.'" title="Share on Tuenti!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/tuenti.png" title="Share on Tuenti!" alt="Tuenti Button" />
-			</a>
-			</span>';
+			$html.= '<li>
+			<a class="golem_button_tuenti" id="golem_button_tuenti" href="https://www.tuenti.com/share?url='.$articleUrl.'" title="Tuenti" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
+		/* ########################################### */
+		/* IDENTI.CA BUTTON */
+		/* ########################################### */
+		if ($show_id_button == "yes") {
+				
+			$identica_status = trim($this->params->get('identica_status',''));
+
+			$html.= '<li>
+			<a class="golem_button_identica" id="golem_button_identica" href="http://identi.ca/index.php?action=newnotice&status_textarea='.$identica_status.' '.$articleTitle.' '.$articleUrl.'" title="Identi.ca" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
+		}
 
 		/* ########################################### */
 		/* DIGG BUTTON */
 		/* ########################################### */
 		if ($show_dg_button == "yes") {
-			$html.= '<span class="golem_button_digg" id="golem_button_digg">
-			<a href="http://www.digg.com/submit?url='.$articleUrl.'&t='.$articleTitle.'" title="Digg this!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/digg.png" title="Digg this!" alt="Digg Button" />
-			</a>
-			</span>';
+			$html.= '<li>
+			<a class="golem_button_digg" id="golem_button_digg" href="http://www.digg.com/submit?url='.$articleUrl.'&t='.$articleTitle.'" title="Digg" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* STUMBLEUPON BUTTON */
 		/* ########################################### */
 		if ($show_st_button == "yes") {
-			$html.= '
-			<span class="golem_button_stumbleupon" id="golem_button_stumbleupon">
-			<a href="https://www.stumbleupon.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Digg this!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/stumbleupon.png" title="Share on Stumbleupon!" alt="Stumbleupon Button" />
-			</a>
-			</span>
-			';
+			$html.= '<li>
+			<a class="golem_button_stumbleupon" id="golem_button_stumbleupon" href="https://www.stumbleupon.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Stumbleupon" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* REDDIT BUTTON */
 		/* ########################################### */
 		if ($show_rd_button == "yes") {
-			$html.= '
-			<span class="golem_button_reddit" id="golem_button_reddit">
-			<a href="http://www.reddit.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Share on Reddit!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/reddit.png" title="Share on Reddit!" alt="Reddit Button" />
-			</a>
-			</span>
-			';
+			$html.= '<li>
+			<a class="golem_button_reddit" id="golem_button_reddit" href="http://www.reddit.com/submit?url='.$articleUrl.'&title='.$articleTitle.'" title="Reddit" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* TECHNORATI BUTTON */
 		/* ########################################### */
 		if ($show_tch_button == "yes") {
-			$html.= '<span class="golem_button_technorati" id="golem_button_technorati">
-			<a href="http://www.technorati.com/faves?add='.$articleUrl.'" title="Share on Technorati!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/technorati.png" title="Share on Technorati!" alt="Technorati Button" />
-			</a>
-			</span>	';
+			$html.= '<li>
+			<a class="golem_button_technorati" id="golem_button_technorati" href="http://www.technorati.com/faves?add='.$articleUrl.'" title="Technorati" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
 		/* ########################################### */
 		/* MENEAME BUTTON */
 		/* ########################################### */
 		if ($show_me_button == "yes") {
-			$html.= '<span class="golem_button_meneame" id="golem_button_meneame">
-			<a href="http://meneame.net/submit.php?url='.$articleUrl.'" title="Share on Meneame!" target="_blank">
-			<img src="'.$baseURL.'images/'.$icons_size.'/meneame.png" title="Share on Meneame!" alt="Meneame Button" />
-			</a>
-			</span>	';
+			$html.= '<li>
+			<a class="golem_button_meneame" id="golem_button_meneame" href="http://meneame.net/submit.php?url='.$articleUrl.'" title="Meneame" target="_blank">&nbsp;</a>&nbsp;
+			</li>';
 		}
 
-
-		$html.= "</div>";
+		$html.= "</ul>";
 
 		$article->text = ($buttons_position == "top")?  $html.$article->text : $article->text.$html;
 
