@@ -13,7 +13,7 @@
 			background-color: transparent !important;
 			text-decoration: none !important;
 			
-			opacity: .6;
+			opacity: 1;
 			
 			-webkit-transition: all 0.2s linear;
 			-moz-transition: all 0.2s linear;
@@ -30,7 +30,7 @@
 				background-color: transparent !important;
 				text-decoration: none !important;
 				
-				opacity: 1;
+				opacity: .6;
 			}
 			
 			.golem_share_buttons span a:active {
